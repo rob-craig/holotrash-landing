@@ -44,12 +44,14 @@ p {
 }
 
 a {
-	color: #B7C3F3;
+	color: #FFFFFC;
 	text-decoration: none;
-	border-bottom: 1px solid #404E5C;
 	transition: border-color 0.3s ease-in-out;
+	padding: 14px 25px;
+	background-color: #757780;
+	border-radius: 10px;
 }
 
 a:hover {
-	border-color: #FFD700;
+	color: #001011;
 }
