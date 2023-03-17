@@ -1,3 +1,27 @@
+function fade() {
+  var element = document.querySelector('.fader');
+  var opacity = 1;
+  var direction = -1;
+  var interval = 50;
+  var duration = 1000;
+  var timer = setInterval(function() {
+    opacity += direction * (interval / duration);
+    element.style.opacity = opacity;
+    if (opacity <= 0) {
+      direction = 1;
+      setTimeout(function() {
+        timer = setInterval(fade, interval);
+      }, duration);
+    } else if (opacity >= 1) {
+      direction = -1;
+      setTimeout(function() {
+        timer = setInterval(fade, interval);
+      }, duration);
+    }
+  }, interval);
+}
+
+
 window.onload = function() {
 	var titles = [
 	    "an interesting web page",
@@ -24,5 +48,6 @@ window.onload = function() {
 	});
 	var title = " " + titles[Math.floor(Math.random()*titles.length)];
 	document.title += title;
-	document.querySelector('h1').innerHTML += title;
+	document.querySelector('h2').innerHTML = title;
+	fade();
 }
